@@ -391,7 +391,7 @@
         <div class="details">
             <p><b>💥 DATE:</b> <u>AUGUST 31ST, 2025</u> – Prepare for the Valve</p>
             <p><b>⏰ TIME:</b> <u>9:00 PM TILL THE VOID</u> – No Sleep for the Wicked!</p>
-            <p><b>📍 LOCATION:</b> <u>TBA DAY OF ON THIS VERY PAGE!</u> Watch for the coordinates!</p>
+            <p><b>📍 LOCATION:</b> <u>TBA DAY OF ON THIS VERY PAGE!</u> Watch for the coordinates! UofM Area! Blue Line will guide you@</p>
             <p><b>🫂 WHO:</b> <u>ALL PARTY PEOPLES!</u> Bring everyone! Invite your fun Aunt!</p>
             <p><b>🎤 PERFORMERS:</b> <br><u>DRAYYYYY<br>MarlboroBrandy<br>L-Set</u> <br>Get ready for some mind-bending acts!</p>
             <p><b>👗 DRESS CODE:</b> IT'S B.O.R.G. - BE. OUTRAGEOUS. RADIANT. GLITCHED.
@@ -406,9 +406,46 @@
             YOU CAN'T HANDLE THE FREAK!
         </div>
         <hr>
-        <center>
-            <img src="stoli.png" alt="Ultimate Party Vibe" class="party-image">
-        </center>
+        <div class="overflow-hidden w-full my-8">
+            <div class="flex items-center animate-sponsor-scroll gap-8" style="width: max-content;">
+                <img src="stoli.png" alt="Ultimate Party Vibe" class="party-image" style="max-height: 300px;">
+                <img src="TCB.png" alt="Trans Canada Brewing" class="party-image" style="max-height: 300px;">
+                <img src="lmq.png" alt="Long & McQuade" class="party-image" style="max-height: 300px;">
+                <!-- Add more sponsor images here as needed -->
+            </div>
+        </div>
+        <style>
+        /* Infinite horizontal scroll with seamless wrap using CSS animation */
+        @keyframes sponsor-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); } /* Adjusted for three sets of images */
+        }
+        .animate-sponsor-scroll {
+            animation: sponsor-scroll 30s linear infinite; /* Increased duration for more content */
+            display: flex;
+            /* The container should be wide enough to hold three sets of images side by side */
+        }
+        </style>
+        <script>
+        // Duplicate sponsor images for seamless wrap
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollDiv = document.querySelector('.animate-sponsor-scroll');
+            // Infinite carousel: duplicate children so the animation can wrap seamlessly
+            if (scrollDiv && scrollDiv.children.length > 0) {
+            // Only duplicate if not already duplicated
+            if (!scrollDiv.dataset.duplicated) {
+                const initialChildren = Array.from(scrollDiv.children);
+                // Duplicate the initial set of children twice
+                for (let i = 0; i < 2; i++) {
+                initialChildren.forEach(child => {
+                    scrollDiv.appendChild(child.cloneNode(true));
+                });
+                }
+                scrollDiv.dataset.duplicated = "true";
+            }
+            }
+        });
+        </script>
     </div>
 
     <script>
