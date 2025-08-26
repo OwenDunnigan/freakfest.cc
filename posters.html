@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posters</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .poster-grid {
+            display: grid;
+            /* Creates responsive columns. On small screens, it will be a single column. */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .poster-item a {
+            display: block;
+            text-decoration: none;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        .poster-item a:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .poster-item img {
+            width: 100%;
+            height: auto;
+            display: block; /* Removes bottom space under the image */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Event Posters</h1>
+
+    <div class="poster-grid">
+        <!-- 
+          Instructions:
+          1. Create a 'posters' directory in the same folder as this html file.
+          2. Place your poster images (e.g., poster1.jpg, poster2.jpg) inside it.
+          3. For each poster, copy one of the <div class="poster-item">...</div> blocks below.
+          4. Change both "posters/your-poster-name.jpg" paths to your actual image file.
+          5. Update the alt="Poster description" text to describe the poster.
+        -->
+
+        <div class="poster-item">
+            <a href="posters/poster_1.png" target="_blank">
+                <img src="posters/poster_1.png" alt="Description for poster 1">
+            </a>
+        </div>
+
+        <!-- Add more posters here by copying the block above -->
+
+    </div>
+
+</body>
+</html>
