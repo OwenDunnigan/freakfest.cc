@@ -511,24 +511,48 @@
         let backgroundSynth;
         let glitchEffectPlayer;
 
-        // Function to start a subtle background drone
+        // Function to start a subtle background drone with Media Session API for persistence
         async function startBackgroundNoise() {
             // Ensure audio context is started on user interaction
             await Tone.start();
             if (!backgroundSynth) {
-                backgroundSynth = new Tone.Synth({
-                    oscillator: { type: "sawtooth" },
-                    envelope: { attack: 0.1, decay: 0.5, sustain: 0.8, release: 2 }
-                }).toDestination();
-                backgroundSynth.set({ detune: 50 }); // Add some detune for a "wobbly" sound
-                backgroundSynth.volume.value = -30; // Keep it very subtle
+            backgroundSynth = new Tone.Synth({
+                oscillator: { type: "sawtooth" },
+                envelope: { attack: 0.1, decay: 0.5, sustain: 0.8, release: 2 }
+            }).toDestination();
+            backgroundSynth.set({ detune: 75 }); // Add some detune for a "wobbly" sound
+            backgroundSynth.volume.value = -30; // Keep it very subtle
 
-                // Play a repeating low drone
-                new Tone.Loop(time => {
-                    backgroundSynth.triggerAttackRelease(Tone.Frequency(Math.random() * 50 + 70, "hz"), "2s", time, 0.5); // Random low frequency
-                }, "4s").start(0);
+            // Play a repeating low drone
+            new Tone.Loop(time => {
+                backgroundSynth.triggerAttackRelease(Tone.Frequency(Math.random() * 50 + 70, "hz"), "2s", time, 0.5); // Random low frequency
+            }, "4s").start(0);
 
+            Tone.Transport.start();
+
+            // Integrate with Media Session API to show up in media playback controls
+            if ('mediaSession' in navigator) {
+                navigator.mediaSession.metadata = new MediaMetadata({
+                title: 'FreakFest: B.O.R.G. Drone',
+                artist: 'The Void',
+                album: 'FreakFest 2025',
+                artwork: [
+                    { src: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="%232ece93"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-4h2v4zm4 0h-2v-4h2v4zm0-6h-4v-2h4v2z"/></svg>', sizes: '96x96', type: 'image/svg+xml' }
+                ]
+                });
+
+                navigator.mediaSession.playbackState = 'playing';
+
+                // Add handlers for media keys (play/pause)
+                navigator.mediaSession.setActionHandler('play', () => {
                 Tone.Transport.start();
+                navigator.mediaSession.playbackState = 'playing';
+                });
+                navigator.mediaSession.setActionHandler('pause', () => {
+                Tone.Transport.pause();
+                navigator.mediaSession.playbackState = 'paused';
+                });
+            }
             }
         }
 
