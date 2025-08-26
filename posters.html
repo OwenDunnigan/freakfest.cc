@@ -19,12 +19,17 @@
         }
 
         .poster-grid {
-            display: grid;
-            /* Creates responsive columns. On small screens, it will be a single column. */
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; /* Center items on the line */
             gap: 1.5rem;
             padding: 0;
             margin: 0;
+        }
+
+        .poster-item {
+            flex: 0 1 350px; /* flex-grow is 0, flex-shrink is 1, basis is 350px */
+            /* max-width is no longer needed as flex-basis controls the size */
         }
 
         .poster-item a {
@@ -69,7 +74,7 @@
         </div>
 
         <div class="poster-item">
-            <a href="posters/poster_3.png" target="_blank">
+            <a href="""posters/poster_3.png" target="_blank"></a>
                 <img src="posters/poster_3.png" alt="Description for poster 3">
             </a>
         </div>
@@ -89,6 +94,11 @@
         <div class="poster-item">
             <a href="posters/poster5.jpg" target="_blank">
                 <img src="posters/poster5.jpg" alt="Description for poster 5">
+            </a>
+        </div>
+        <div class="poster-item">
+            <a href="posters/poster6.jpg" target="_blank">
+                <img src="posters/poster6.jpg" alt="Description for poster 6">
             </a>
         </div>
     </div>
