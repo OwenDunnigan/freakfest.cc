@@ -4,603 +4,78 @@
     <title>⚡👽 FreakFest 2025: B.O.R.G. 👽⚡</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Tailwind CSS CDN for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Tone.js for dynamic audio effects -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
     <style>
-        /* Define custom Tailwind colors if needed, or override */
-        :root {
-            --neon-green: #2ece93;
-            --hot-pink: #ce0767;
-            --electric-blue: #3077e0;
-            --psychedelic-purple: #aa17db;
-            --acid-yellow: #fff200;
-            --deep-space: #10061A;
-            --glitch-shadow-1: 5px 5px 0 var(--hot-pink);
-            --glitch-shadow-2: -5px -5px 0 var(--neon-green);
-        }
-
         body {
-            /* Animated background gradient for maximum chaos */
-            background: linear-gradient(-45deg, var(--deep-space), #0c002b, #001f3f, var(--deep-space));
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            font-family: 'Press Start 2P', cursive, 'Courier New', Courier, monospace; /* Pixelated font for retro chaos */
-            color: var(--neon-green); /* Default text color */
+            background-color: #a2d5f2; /* Alive blue */
+            color: #000;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding: 20px;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden; /* Prevent horizontal scroll from animations */
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="%23FF10F0"><path d="M12 0l-3 6-6 3 6 3 3 6 3-6 6-3-6-3-3-6z"/></svg>') 16 16, auto; /* Custom cursor */
         }
-
-        /* Add a custom font */
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-        /* Keyframes for background animation */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Container styling with pulsing border and rotation */
-        .container {
-            position: relative;
-            z-index: 10;
-            width: 95%; /* More fluid width */
-            max-width: 900px; /* Max width to prevent stretching on large screens */
-            margin: 20px auto; /* Reduced margin */
-            padding: 30px; /* Increased padding */
-            border: 8px solid var(--electric-blue); /* Thicker border */
-            border-radius: 20px; /* More rounded corners */
-            background: rgba(16, 6, 26, 0.85); /* Slightly transparent deep-space background */
-            box-shadow: 0 0 30px var(--hot-pink), 0 0 60px var(--psychedelic-purple), inset 0 0 20px var(--neon-green); /* Multiple glowing shadows */
-            animation: pulseBorder 2s infinite alternate, rotateContainer 60s linear infinite alternate;
-            transform-origin: center center; /* Ensure rotation is centered */
-        }
-
-        @keyframes pulseBorder {
-            0% { border-color: var(--electric-blue); box-shadow: 0 0 30px var(--hot-pink); }
-            100% { border-color: var(--neon-green); box-shadow: 0 0 50px var(--acid-yellow), 0 0 80px var(--electric-blue); }
-        }
-
-        @keyframes rotateContainer {
-            from { transform: rotate(-0.01turn) }
-            to { transform: rotate(0.03turn) }
-        }
-
         h1 {
-            text-align: center;
-            font-size: clamp(2.5em, 8vw, 5em); /* Responsive font size */
-            color: var(--acid-yellow);
-            text-shadow: var(--glitch-shadow-1), var(--glitch-shadow-2), 0 0 15px var(--neon-green); /* Glitchy text shadow */
-            animation: flicker 0.1s infinite alternate, neonGlow 1.5s ease-in-out infinite alternate;
-            margin-bottom: 20px;
-            letter-spacing: 3px;
+            font-size: 2.5em;
+            color: #ff69b4; /* Fairy pink */
+            text-shadow: 2px 2px 5px #fff;
         }
-
-        @keyframes flicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% { text-shadow: var(--glitch-shadow-1), var(--glitch-shadow-2), 0 0 15px var(--neon-green); opacity: 1; }
-            20%, 24%, 55% { text-shadow: var(--glitch-shadow-2), var(--glitch-shadow-1), 0 0 20px var(--hot-pink); opacity: 0.8; }
-        }
-
-        @keyframes neonGlow {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
-        }
-
-        hr {
-            border: none;
-            border-top: 5px dotted var(--hot-pink); /* Dotted border */
-            margin: 25px 0;
-            animation: dashPulse 1s infinite alternate;
-        }
-
-        @keyframes dashPulse {
-            0% { border-color: var(--hot-pink); }
-            100% { border-color: var(--electric-blue); }
-        }
-
-        marquee {
-            font-size: clamp(1.2em, 4vw, 2em); /* Responsive font size */
-            color: var(--psychedelic-purple);
-            font-weight: bold;
-            margin-bottom: 25px;
-            text-shadow: 3px 3px 0 var(--acid-yellow);
-            animation: textWave 0.5s infinite alternate;
-        }
-
-        @keyframes textWave {
-            0% { transform: translateY(0px); text-shadow: 3px 3px 0 var(--acid-yellow); }
-            100% { transform: translateY(-5px); text-shadow: 5px 5px 0 var(--hot-pink); }
-        }
-
-        .details {
-            background-color: rgb(255, 179, 251);
-        }
-        .details p {
-            font-size: clamp(1em, 3vw, 1.3em); /* Responsive font size */
-            margin-bottom: 12px;
+        p {
+            font-size: 1.2em;
             line-height: 1.5;
-            color: var(--neon-green);
-            animation: textPulse 2s infinite ease-in-out;
         }
-
-        .details p:nth-child(even) {
-            color: var(--hot-pink);
-            animation-delay: 0.5s;
+        footer {
+            border: 10px solid #fff;
+            border-image: url('https://i.imgur.com/8Q7Q8Q7.gif') 30 round; /* Updated lace border GIF */
+            padding: 20px;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.8);
         }
-        .details p:nth-child(odd) {
-            color: var(--electric-blue);
-        }
-
-        @keyframes textPulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.02); opacity: 0.9; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-
-        .crazy {
-            font-size: clamp(1.8em, 6vw, 3em); /* Responsive font size */
-            color: var(--acid-yellow);
-            font-weight: bold;
-            text-align: center;
-            margin-top: 35px;
-            text-transform: uppercase;
-            letter-spacing: 7px;
-            text-shadow: 4px 4px 0 var(--electric-blue), -4px -4px 0 var(--hot-pink);
-            animation: glitchEffect 0.2s infinite alternate, rainbowText 3s linear infinite;
-        }
-
-        @keyframes glitchEffect {
-            0% { transform: skewX(0deg); text-shadow: var(--glitch-shadow-1), var(--glitch-shadow-2); }
-            20% { transform: skewX(-5deg); text-shadow: 5px 0px 0 var(--hot-pink), -5px 0px 0 var(--neon-green); }
-            40% { transform: skewX(0deg); text-shadow: var(--glitch-shadow-1), var(--glitch-shadow-2); }
-            60% { transform: skewX(5deg); text-shadow: -5px 0px 0 var(--electric-blue), 5px 0px 0 var(--acid-yellow); }
-            80% { transform: skewX(0deg); text-shadow: var(--glitch-shadow-1), var(--glitch-shadow-2); }
-            100% { transform: skewX(-3deg); text-shadow: 3px 3px 0 var(--psychedelic-purple), -3px -3px 0 var(--hot-pink); }
-        }
-
-        @keyframes rainbowText {
-            0% { color: #FF0000; }
-            16% { color: #FF7F00; }
-            33% { color: #FFFF00; }
-            50% { color: #00FF00; }
-            66% { color: #0000FF; }
-            83% { color: #4B0082; }
-            100% { color: #9400D3; }
-        }
-
         a {
-            color: var(--acid-yellow); /* Link color */
-            background: var(--electric-blue); /* Background for links */
-            text-decoration: none; /* No underline by default */
-            padding: 5px 10px;
-            border-radius: 8px;
-            transition: all 0.3s ease-in-out;
-            border: 2px solid var(--neon-green);
+            color: #ff69b4;
+            text-decoration: none;
         }
+.freak {
+    margin: 5vmin;
+     position: absolute;
+     top: 60%;
+     max-width: 50vw !important;
+}
 
         a:hover {
-            color: var(--hot-pink);
-            background: var(--neon-green);
             text-decoration: underline;
-            box-shadow: 0 0 15px var(--acid-yellow);
-            transform: scale(1.05) rotate(2deg);
         }
-
-        /* Image styling: pulsing and glowing */
-        .party-image {
-            width: 100%; /* Responsive image */
-            max-width: 400px; /* Max width for image */
-            height: auto;
-            border: 7px solid var(--hot-pink);
-            border-radius: 15px;
-            box-shadow: 0 0 25px var(--electric-blue), 0 0 50px var(--psychedelic-purple);
-            animation: imagePulse 3s infinite ease-in-out alternate;
-            display: block; /* Center image using margin auto */
-            margin: 30px auto;
-            background: linear-gradient(-45deg, var(--deep-space), #0c002b, #001f3f, var(--deep-space));
+        .sparkle {
+            display: block;
+            margin: 10px auto;
+            animation: sparkleAnimation 1.5s infinite alternate;
+            max-width: 100vw;
         }
-
-        @keyframes imagePulse {
-            0% { transform: scale(1) rotate(0deg); box-shadow: 0 0 25px var(--electric-blue); }
-            50% { transform: scale(1.03) rotate(-3deg); box-shadow: 0 0 40px var(--neon-green); }
-            100% { transform: scale(1) rotate(0deg); box-shadow: 0 0 25px var(--electric-blue); }
-        }
-
-        /* Confetti particle styles */
-        .confetti {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background-color: var(--neon-green); /* Default confetti color */
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0;
-            animation: fadeOut 2s forwards ease-out;
-        }
-
-        @keyframes fadeOut {
-            0% { opacity: 1; transform: translateY(0) rotate(0deg); }
-            100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
-        }
-
-        /* Mouse trail particle styles */
-        .trail {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: radial-gradient(circle, var(--hot-pink) 0%, var(--electric-blue) 100%);
-            border-radius: 50%;
-            pointer-events: none;
-            opacity: 0.7;
-            transform: scale(0);
-            animation: trailFadeOut 0.8s forwards;
-            filter: blur(2px);
-            z-index: 9999;
-        }
-
-        @keyframes trailFadeOut {
-            0% { transform: scale(1); opacity: 0.7; }
-            100% { transform: scale(0); opacity: 0; }
-        }
-
-        /* Glitch button styles */
-        .glitch-button {
-            background-color: var(--psychedelic-purple);
-            color: white;
-            padding: 15px 30px;
-            border: 4px solid var(--neon-green);
-            border-radius: 10px;
-            font-size: 1.5em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.1s ease;
-            position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 30px;
-        }
-
-        .glitch-button:hover {
-            background-color: var(--electric-blue);
-            box-shadow: 0 0 20px var(--acid-yellow);
-            transform: scale(1.05) rotateX(5deg);
-        }
-
-        .glitch-button::before,
-        .glitch-button::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--psychedelic-purple);
-            filter: blur(0px);
-            transition: all 0.05s linear;
-        }
-
-        .glitch-button::before {
-            color: var(--hot-pink);
-            z-index: -1;
-            clip-path: inset(60% 0 0 0);
-        }
-
-        .glitch-button::after {
-            color: var(--neon-green);
-            z-index: -2;
-            clip-path: inset(0 0 60% 0);
-        }
-
-        .glitch-button:hover::before {
-            transform: translate(5px, -5px);
-            clip-path: inset(0 0 60% 0);
-            background: var(--electric-blue);
-        }
-
-        .glitch-button:hover::after {
-            transform: translate(-5px, 5px);
-            clip-path: inset(60% 0 0 0);
-            background: var(--neon-green);
-        }
-
-        /* Glitch overlay for full screen effect */
-        #glitch-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 99999;
-            opacity: 0;
-            transition: opacity 0.05s ease-out;
-            background: repeating-linear-gradient(
-                90deg,
-                rgba(255, 0, 0, 0.1) 0%,
-                rgba(0, 255, 0, 0.1) 25%,
-                rgba(0, 0, 255, 0.1) 50%,
-                rgba(255, 255, 0, 0.1) 75%,
-                rgba(255, 0, 0, 0.1) 100%
-            );
-        }
-
-        #glitch-overlay.active {
-            animation: screenGlitch 0.2s steps(2, end) infinite;
-            opacity: 1;
-        }
-
-        @keyframes screenGlitch {
-            0% { transform: translate(0, 0); clip-path: inset(0 0 0 0); opacity: 1; }
-            20% { transform: translate(-2px, 2px); clip-path: inset(10% 0 80% 0); opacity: 0.9; }
-            40% { transform: translate(3px, -3px); clip-path: inset(30% 0 40% 0); opacity: 0.8; }
-            60% { transform: translate(-1px, 1px); clip-path: inset(70% 0 10% 0); opacity: 0.95; }
-            80% { transform: translate(4px, -4px); clip-path: inset(5% 0 85% 0); opacity: 0.85; }
-            100% { transform: translate(0, 0); clip-path: inset(0 0 0 0); opacity: 1; }
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                width: 98%;
-                padding: 15px;
+        @keyframes sparkleAnimation {
+            0% {
+                transform: scale(1);
+                opacity: 1;
             }
-            h1 {
-                font-size: clamp(2em, 10vw, 3.5em);
+            100% {
+                transform: scale(1.2);
+                opacity: 0.8;
             }
-            marquee {
-                font-size: clamp(1em, 5vw, 1.5em);
-            }
-            .details p {
-                font-size: clamp(0.9em, 3.5vw, 1.1em);
-            }
-            .crazy {
-                font-size: clamp(1.5em, 7vw, 2.5em);
-                letter-spacing: 3px;
-            }
-            .glitch-button {
-                padding: 10px 20px;
-                font-size: 1.2em;
-            }
-        }
-
-        /* Confetti container to ensure it stays within bounds */
-        #confetti-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: 9998; /* Below mouse trail, above other content */
         }
     </style>
 </head>
 <body>
-    <div id="confetti-container"></div>
-    <div id="glitch-overlay"></div>
-
-    <div class="container">
-        <h1>�🔥 FREAKFEST 2025: B.O.R.G. 🔥🚨</h1>
-        <marquee behavior="alternate" scrollamount="15" class="hover:text-acid-yellow">
-            <span class="text-hot-pink animate-pulse">WARNING:</span><span class="text-electric-blue animate-bounce">EXPECT THE VALVE!</span> Your Sanity is Optional! 👾✨
-        </marquee>
-        <hr>
-        <div class="details">
-            <p><b>💥 DATE:</b> <u>AUGUST 31ST, 2025</u> – Prepare for the Valve</p>
-            <p><b>⏰ TIME:</b> <u>9:00 PM TILL THE VOID</u> – No Sleep for the Wicked!</p>
-            <p><b>📍 LOCATION:</b> <u>TBA DAY OF ON THIS VERY PAGE!</u> Watch for the coordinates! UofM Area! Blue Line will guide you@</p>
-            <p><b>🫂 WHO:</b> <u>ALL PARTY PEOPLES!</u> Bring everyone! Invite your fun Aunt!</p>
-            <p><b>🎤 PERFORMERS:</b> <br><u>DRAYYYYY<br>MarlboroBrandy<br>L-Set</u></p>
-            <p><b>👗 DRESS CODE:</b> IT'S B.O.R.G. - BE. OUTRAGEOUS. RADIANT. GOOCHED.
-                <br>Attire: Gala-meets-Mad-Max, White Party Rave, NEON, or that one outfit that screams "I AM." Black lights to kill your inhibitions! ✨</p>
-            <p><b>🎟️ ENTRY:</b>Please consider a sacred offering of $5-10 for the CONTINUED and UPGRADED manifestation of FREAK. Donation (jar or etransfer) ↓</p>
-            <p><b>✉️ CONTACT:</b> <a href="mailto:party@freakfest.cc" class="transition-all duration-300">PARTY@FREAKFEST.CC</a></p>
-        </div>
-        <div class="text-center mt-8">
-            <button class="glitch-button" data-text="INITIATE MAYHEM" onclick="toggleGlitch()">INITIATE MAYHEM</button>
-        </div>
-        <hr>
-        <div class="overflow-hidden w-full my-8">
-            <div class="flex items-center animate-sponsor-scroll gap-8" style="width: max-content;">
-                <img src="stoli.png" alt="Ultimate Party Vibe" class="party-image" style="max-height: 300px;">
-                <img src="TCB.png" alt="Trans Canada Brewing" class="party-image" style="max-height: 300px;">
-                <img src="lmq.png" alt="Long & McQuade" class="party-image" style="max-height: 300px;">
-                <img src="ben.png" alt="Ben's Brewing" class="party-image" style="max-height: 300px;">
-                <!-- Add more sponsor images here as needed -->
-            </div>
-        </div>
-        <style>
-        /* Infinite horizontal scroll with seamless wrap using CSS animation */
-        @keyframes sponsor-scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-33.333%); } /* Adjusted for three sets of images */
-        }
-        .animate-sponsor-scroll {
-            animation: sponsor-scroll 30s linear infinite; /* Increased duration for more content */
-            display: flex;
-            /* The container should be wide enough to hold three sets of images side by side */
-        }
-        </style>
-        <script>
-        // Duplicate sponsor images for seamless wrap
-        document.addEventListener('DOMContentLoaded', () => {
-            const scrollDiv = document.querySelector('.animate-sponsor-scroll');
-            // Infinite carousel: duplicate children so the animation can wrap seamlessly
-            if (scrollDiv && scrollDiv.children.length > 0) {
-            // Only duplicate if not already duplicated
-            if (!scrollDiv.dataset.duplicated) {
-                const initialChildren = Array.from(scrollDiv.children);
-                // Duplicate the initial set of children twice
-                for (let i = 0; i < 2; i++) {
-                initialChildren.forEach(child => {
-                    scrollDiv.appendChild(child.cloneNode(true));
-                });
-                }
-                scrollDiv.dataset.duplicated = "true";
-            }
-            }
-        });
-        </script>
-    </div>
-
-    <script>
-        // Initialize Firebase variables (will be populated by Canvas runtime)
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        // Confetti function
-        function spawnConfetti() {
-            const container = document.getElementById('confetti-container');
-            const colors = ['var(--neon-green)', 'var(--hot-pink)', 'var(--electric-blue)', 'var(--acid-yellow)', 'var(--psychedelic-purple)'];
-
-            for (let i = 0; i < 50; i++) { // Spawn 50 confetti particles
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.top = `${Math.random() * -20}vh`; // Start above the screen
-                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.width = `${Math.random() * 8 + 4}px`; // Random size
-                confetti.style.height = confetti.style.width;
-                confetti.style.animationName = `fadeOut, fallAndRotate${Math.floor(Math.random() * 3)}`;
-                confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                confetti.style.animationDelay = `${Math.random() * 0.5}s`;
-                confetti.style.animationIterationCount = '1';
-                confetti.style.animationFillMode = 'forwards';
-                confetti.style.opacity = 1;
-
-                // Define random fall and rotate keyframes
-                const styleSheet = document.styleSheets[0];
-                const animName = `fallAndRotate${Math.floor(Math.random() * 1000)}`; // Unique animation name
-                const randomX = (Math.random() - 0.5) * 200; // Spread left/right
-                const randomRotation = Math.random() * 1000 + 360; // Random rotation
-
-                styleSheet.insertRule(`
-                    @keyframes ${animName} {
-                        0% { transform: translate(0, 0vh) rotate(0deg); opacity: 1; }
-                        100% { transform: translate(${randomX}px, 100vh) rotate(${randomRotation}deg); opacity: 0; }
-                    }
-                `, styleSheet.cssRules.length);
-                confetti.style.animationName = `fadeOut, ${animName}`; // Apply both animations
-                container.appendChild(confetti);
-
-                // Remove after animation to prevent DOM bloat
-                confetti.addEventListener('animationend', () => confetti.remove());
-            }
-        }
-
-        // Mouse trail effect
-        document.addEventListener('mousemove', (e) => {
-            const trail = document.createElement('div');
-            trail.classList.add('trail');
-            trail.style.left = `${e.clientX}px`;
-            trail.style.top = `${e.clientY}px`;
-            document.body.appendChild(trail);
-
-            trail.addEventListener('animationend', () => trail.remove());
-        });
-
-        // Tone.js for subtle background sound (or on interaction)
-        let backgroundSynth;
-        let glitchEffectPlayer;
-
-        // Function to start a subtle background drone with Media Session API for persistence
-        async function startBackgroundNoise() {
-            // Ensure audio context is started on user interaction
-            await Tone.start();
-            if (!backgroundSynth) {
-            backgroundSynth = new Tone.Synth({
-                oscillator: { type: "sawtooth" },
-                envelope: { attack: 0.1, decay: 0.5, sustain: 0.8, release: 2 }
-            }).toDestination();
-            backgroundSynth.set({ detune: 75 }); // Add some detune for a "wobbly" sound
-            backgroundSynth.volume.value = -30; // Keep it very subtle
-
-            // Play a repeating low drone
-            new Tone.Loop(time => {
-                backgroundSynth.triggerAttackRelease(Tone.Frequency(Math.random() * 50 + 70, "hz"), "2s", time, 0.5); // Random low frequency
-            }, "4s").start(0);
-
-            Tone.Transport.start();
-
-            // Integrate with Media Session API to show up in media playback controls
-            if ('mediaSession' in navigator) {
-                navigator.mediaSession.metadata = new MediaMetadata({
-                title: 'FreakFest: B.O.R.G. Drone',
-                artist: 'The Void',
-                album: 'FreakFest 2025',
-                artwork: [
-                    { src: 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 24 24" fill="%232ece93"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-4h2v4zm4 0h-2v-4h2v4zm0-6h-4v-2h4v2z"/></svg>', sizes: '96x96', type: 'image/svg+xml' }
-                ]
-                });
-
-                navigator.mediaSession.playbackState = 'playing';
-
-                // Add handlers for media keys (play/pause)
-                navigator.mediaSession.setActionHandler('play', () => {
-                Tone.Transport.start();
-                navigator.mediaSession.playbackState = 'playing';
-                });
-                navigator.mediaSession.setActionHandler('pause', () => {
-                Tone.Transport.pause();
-                navigator.mediaSession.playbackState = 'paused';
-                });
-            }
-            }
-        }
-
-        // Function for a quick glitch sound effect
-        async function playGlitchSound() {
-            await Tone.start();
-            if (!glitchEffectPlayer) {
-                glitchEffectPlayer = new Tone.NoiseSynth({
-                    noise: { type: "pink" },
-                    envelope: { attack: 0.001, decay: 0.05, sustain: 0, release: 0.05 }
-                }).toDestination();
-                glitchEffectPlayer.volume.value = -5; // Make it audible
-            }
-            glitchEffectPlayer.triggerAttackRelease("0.1s");
-        }
-
-        // Glitch overlay toggle
-        let glitchActive = false;
-        let glitchInterval;
-
-        function toggleGlitch() {
-            const overlay = document.getElementById('glitch-overlay');
-            if (!glitchActive) {
-                glitchActive = true;
-                overlay.classList.add('active');
-                playGlitchSound();
-                // Randomly trigger confetti during glitch
-                glitchInterval = setInterval(() => {
-                    if (Math.random() < 0.3) spawnConfetti();
-                    playGlitchSound();
-                }, 100); // More frequent glitch effects
-                setTimeout(() => {
-                    glitchActive = false;
-                    overlay.classList.remove('active');
-                    clearInterval(glitchInterval);
-                }, 1500); // Glitch lasts for 1.5 seconds
-            }
-        }
-
-        // Trigger confetti on page load and periodically
-        window.onload = function() {
-            spawnConfetti();
-            setInterval(spawnConfetti, 5000); // Spawn confetti every 5 seconds
-
-            // Start background noise on initial user interaction (e.g., first click or keypress)
-            // This is a common browser policy for audio playback
-            document.body.addEventListener('click', startBackgroundNoise, { once: true });
-            document.body.addEventListener('keydown', startBackgroundNoise, { once: true });
-        };
-    </script>
+    <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Sparkle GIF" class="sparkle"> <!-- Updated sparkle GIF -->
+    <h1>You've been cordially invited to FreakFest 2025: B.O.R.G.</h1>
+    <p>Join us for an unforgettable night filled with music, laughter, friends, and terminology.</p>
+    <footer>
+        <p><b>💥 DATE:</b> <u>AUGUST 31ST, 2025</u></p>
+        <p><b>⏰ TIME:</b> <u>9:00 PM TILL THE VOID</u></p>
+        <p><b>📍 LOCATION:</b> <u>112 Lake Village Rd, Winnipeg, MB</u> UofM Area! Blue Line will guide you@Chancellor Station</p>
+        <p><b>🫂 WHO:</b> <u>ALL PARTY PEOPLES!</u> Bring everyone! Invite your fun Aunt!</p>
+        <p><b>🎤 PERFORMERS:</b> <br><u>DRAYYYYY<br>MarlboroBrandy<br>L-Set</u></p>
+        <p><b>👗 DRESS CODE:</b> Black Tie, Fancy Aunts Funeral, 2010's 5k Glow Run+Wine Mom+Cyberpunk 
+            <br> Black lights set to kill! ✨</p>
+        <p><b>🎟️ ENTRY:</b>Please consider a sacred offering of $5-10 for the CONTINUED and UPGRADED manifestation of FREAK. Donation (jar or etransfer) ↓</p>
+        <p><b>✉️ CONTACT:</b> <a href="mailto:party@freakfest.cc" class="transition-all duration-300">PARTY@FREAKFEST.CC</a></p>
+    </footer>
+    <img src="fee-fairy.gif" alt="Fairy GIF" class="sparkle , freak"> <!-- Updated fairy GIF -->
 </body>
 </html>
