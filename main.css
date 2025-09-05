@@ -3,12 +3,11 @@
   font-size: 2em;
   font-family: garamond;
   letter-spacing: 0.2em;
-  background: linear-gradient(45deg, #212236, transparent);
+  background: aliceblue;
 }
 
 p {
   font-weight: 100;
   font-family: Roboto;
-  letter-spacing: -0.158em;
   font-size: 1em;
 }/*# sourceMappingURL=main.css.map */
